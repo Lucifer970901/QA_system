@@ -25,47 +25,7 @@ graph TD
     C --> D[Data Retrieval Layer <br> - Calls /messages API <br> - Normalizes content]
     D --> E[Inference Engine <br> - Keyword matching <br> - Rule-based logic <br> - (Optional) semantic similarity]
     E --> F{JSON Response <br> {"answer": "..."}}
-
-┌────────────────────────────┐
-│        User Query          │
-│  (Natural Language Input)  │
-└──────────────┬─────────────┘
-               │
-               ▼
-    ┌────────────────────┐
-    │ /ask Endpoint (API)│
-    │ FastAPI Web Server │
-    └─────────┬──────────┘
-              │
-              ▼
-    ┌──────────────────────┐
-    │ Question Parser      │
-    │ - Extracts member    │
-    │   name + intent      │
-    └─────────┬────────────┘
-              │
-              ▼
-    ┌────────────────────────┐
-    │ Data Retrieval Layer   │
-    │ - Calls /messages API  │
-    │ - Normalizes content   │
-    └──────────┬─────────────┘
-               │
-               ▼
-    ┌────────────────────────┐
-    │ Inference Engine       │
-    │ - Keyword matching     │
-    │ - Rule-based logic     │
-    │ - (Optional) semantic  │
-    │   similarity scoring   │
-    └──────────┬─────────────┘
-               │
-               ▼
-    ┌───────────────────┐
-    │ JSON Response     │
-    │ {"answer": "..."} │
-    └──────────-────────┘
-
+```
 ---
 
 ## ⚙️ 3. Key Design Components
