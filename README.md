@@ -19,43 +19,44 @@ The core challenge is to **extract and infer structured answers** (e.g., dates, 
 The service is designed as a pipeline that processes a natural language query through several asynchronous layers before returning the final JSON answer.
 
 ┌────────────────────────────┐
-    │        User Query          │
-    │  (Natural Language Input)  │
-    └──────────────┬─────────────┘
-                   │
-                   ▼
-         ┌────────────────────┐
-         │ /ask Endpoint (API)│
-         │ FastAPI Web Server │
-         └─────────┬──────────┘
-                   │
-                   ▼
-         ┌──────────────────────┐
-         │ Question Parser      │
-         │ - Extracts member    │
-         │   name + intent      │
-         └─────────┬────────────┘
-                   │
-                   ▼
-        ┌────────────────────────┐
-        │ Data Retrieval Layer   │
-        │ - Calls /messages API  │
-        │ - Normalizes content   │
-        └──────────┬─────────────┘
-                   │
-                   ▼
-        ┌────────────────────────┐
-        │ Inference Engine       │
-        │ - Keyword matching     │
-        │ - Rule-based logic     │
-        │ - (Optional) semantic  │
-        │   similarity scoring   │
-        └──────────┬─────────────┘
-                   │
-                   ▼
-         ┌───────────────────┐
-         │ JSON Response     │
-         │ {"answer": "..."} │
+│        User Query          │
+│  (Natural Language Input)  │
+└──────────────┬─────────────┘
+               │
+               ▼
+    ┌────────────────────┐
+    │ /ask Endpoint (API)│
+    │ FastAPI Web Server │
+    └─────────┬──────────┘
+              │
+              ▼
+    ┌──────────────────────┐
+    │ Question Parser      │
+    │ - Extracts member    │
+    │   name + intent      │
+    └─────────┬────────────┘
+              │
+              ▼
+    ┌────────────────────────┐
+    │ Data Retrieval Layer   │
+    │ - Calls /messages API  │
+    │ - Normalizes content   │
+    └──────────┬─────────────┘
+               │
+               ▼
+    ┌────────────────────────┐
+    │ Inference Engine       │
+    │ - Keyword matching     │
+    │ - Rule-based logic     │
+    │ - (Optional) semantic  │
+    │   similarity scoring   │
+    └──────────┬─────────────┘
+               │
+               ▼
+    ┌───────────────────┐
+    │ JSON Response     │
+    │ {"answer": "..."} │
+    └──────────-────────┘
 
 ---
 
