@@ -18,13 +18,8 @@ The core challenge is to **extract and infer structured answers** (e.g., dates, 
 
 The service is designed as a pipeline that processes a natural language query through several asynchronous layers before returning the final JSON answer.
 
-```mermaid
-graph TD
-    A[User Query <br> (Natural Language Input)] --> B[/ask Endpoint (API) <br> FastAPI Web Server]
-    B --> C[Question Parser <br> - Extracts member name + intent]
-    C --> D[Data Retrieval Layer <br> - Calls /messages API <br> - Normalizes content]
-    D --> E[Inference Engine <br> - Keyword matching <br> - Rule-based logic <br> - (Optional) semantic similarity]
-    E --> F{JSON Response <br> {"answer": "..."}}
+![QA API System Architecture](system_architecture.png)
+
 ---
 
 ## ⚙️ 3. Key Design Components
